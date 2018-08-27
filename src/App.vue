@@ -4,7 +4,7 @@
       <p> Logo Here </p>
         <nav> 
           <router-link to="/"> Home </router-link>
-          <router-link to="/"> People </router-link>
+          <router-link to="/pokemon"> Pokemon </router-link>
         </nav>
     </header>
     <main> 
@@ -16,6 +16,7 @@
 <script>
 
 export default {
+  name: 'app',
   components: {
 
   }
