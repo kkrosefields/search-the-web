@@ -61,7 +61,7 @@ export default {
 
         api.getPokemon(this.search)
             .then(response => {
-                this.pokemon = response.results;
+                this.pokemon = response.pokemon_species;
                 this.total = response.count;
                 this.loading = false;
             })

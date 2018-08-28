@@ -2,6 +2,8 @@
     <div v-if="pokemon">
         <li class="pokemon-card">
             <h2> {{pokemon.name}} </h2>
+            <h2> {{pokemon.attack}}</h2>
+            <img class="pokemon-img" :src=pokemon.url_image>
      </li>   
     </div>
 </template>
@@ -23,7 +25,7 @@ search:'',
 },
   
   created() {
-    this.search = this.$route.params.pokemon_id;
+    this.search = this.$route.params.id;
     this.searchPokemon();
   },
   components: {
@@ -33,7 +35,7 @@ search:'',
     searchPokemon() {
       this.loading = true;
       this.error = null;
-      api.getPokemon(this.search)
+      api.getDetails(this.search)
         .then(response => {
           this.pokemon = response.results[0];
           this.loading = false;

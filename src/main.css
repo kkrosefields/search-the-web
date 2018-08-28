@@ -1,0 +1,76 @@
+header {
+background: #297fca;
+padding: 20px;
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+display:flex;
+flex-direction: row;
+flex-wrap: wrap;
+justify-content: center;
+}
+
+.title {
+    padding: 20px;
+    margin-right:40px;
+ 
+}
+header h1 {
+    font-size:25px;
+    color:#ffffff;
+    margin: 0;
+}
+
+header p {
+    margin: 0;
+    color: white;
+}
+
+body {
+    background-image: url("/pokemon-bg.jpg");
+    size: cover;
+    margin: 0;
+}
+
+/* results page */
+.results {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 50px; 
+}
+
+.ul{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 20px;
+    padding-left: 0px;
+    align-items: center;
+}
+
+/* forms */
+select {
+    width: 150px;
+    height: 40px;
+    font-size: 14px;
+    margin-right: 20px;
+}
+
+label {
+    color: white;
+    margin-right: 20px;
+}
+
+.filter-input {
+    padding: 13px;
+    width: 150px;
+    border-radius: 5px;
+    border:none;
+}
+
+input::placeholder {
+    color: #2c3e50;
+    font-size: 15px;
+}
+
+.filter-sort{
+    padding:20px;
+}

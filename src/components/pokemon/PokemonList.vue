@@ -1,6 +1,6 @@
 <template>
     <li> 
-        <router-link :to="`/pokemon/${pokemonList.name}`">
+        <router-link :to="`pokemon/${pokemonList.name}`">
         {{pokemonList.name}} 
         </router-link>
     </li>
@@ -11,10 +11,8 @@ export default {
     props: {
         pokemonList: Object
     }
-
 };
 </script>
 
 <style>
-
 </style>

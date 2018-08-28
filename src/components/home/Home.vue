@@ -11,12 +11,10 @@ props: {
     selected: Object,
     onSelect: Function
   },
-
   methods: {
     handleClick(){
       this.onSelect(this.pokemonCard);
     }
   }
 };
-
 </script>
