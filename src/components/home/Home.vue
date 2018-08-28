@@ -7,7 +7,7 @@
 
 <script>
 export default {
-props: {
+  props: {
     selected: Object,
     onSelect: Function
   },

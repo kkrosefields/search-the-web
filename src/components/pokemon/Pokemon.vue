@@ -27,52 +27,52 @@
 
 <script>
 import api from '../../services/api';
-import PokemonList from './PokemonList'
-import PokemonCard from './PokemonCard'
+import PokemonList from './PokemonList';
+import PokemonCard from './PokemonCard';
 import PokemonSearch from './PokemonSearch';
 import Loader from './Loader';
 
 export default {
-    name:'pokemon',
-    data(){
-        return {
-            pokemon: null,
-            loading: false,
-            error: null,
-            search:'',
-            total: 0,
+  name:'pokemon',
+  data(){
+    return {
+      pokemon: null,
+      loading: false,
+      error: null,
+      search:'',
+      total: 0,
             
-        }
+    };
+  },
+  components: {
+    PokemonList,
+    PokemonCard,
+    PokemonSearch,
+    Loader 
+  },
+  methods: {
+    handleSearch(search){
+      this.search = search;
+      this.searchPokemon();
     },
-    components: {
-        PokemonList,
-        PokemonCard,
-        PokemonSearch,
-        Loader 
-    },
-    methods: {
-        handleSearch(search){
-            this.search = search;
-            this.searchPokemon();
-        },
-        searchPokemon() {
-            this.loading = true;
-            this.error = null;
+    searchPokemon() {
+      this.loading = true;
+      this.error = null;
 
-        api.getPokemon(this.search)
-            .then(response => {
-                this.pokemon = response.pokemon_species;
-                this.total = response.count;
-                this.loading = false;
-            })
-            .catch(err => {
-                this.error = err.message;
-                this.loading = false;
-            });
-        }
+      api.getPokemon(this.search)
+        .then(response => {
+          this.pokemon = response.pokemon_species;
+          this.total = response.count;
+          this.loading = false;
+        })
+        .catch(err => {
+          this.error = err.message;
+          this.loading = false;
+        });
     }
+  }
 
-}
+};
 </script>
 
 <style>

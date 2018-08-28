@@ -8,9 +8,9 @@
 
 <script>
 export default {
-    props: {
-        pokemonList: Object
-    }
+  props: {
+    pokemonList: Object
+  }
 };
 </script>
 

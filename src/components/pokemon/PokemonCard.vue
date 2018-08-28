@@ -14,18 +14,19 @@ import Loader from './Loader';
 
 export default {
 
-data(){
-return {
-pokemon: null,
-loading: false,
-error: null,
-search:'',
+  data(){
+    return {
+      pokemon: null,
+      loading: false,
+      error: null,
+      search:'',
+
     
-}
-},
+    };
+  },
   
   created() {
-    this.search = this.$route.params.id;
+    this.search = this.$route.params.pokemon;
     this.searchPokemon();
   },
   components: {
@@ -37,7 +38,7 @@ search:'',
       this.error = null;
       api.getDetails(this.search)
         .then(response => {
-          this.pokemon = response.results[0];
+          this.pokemon = response.results[''];
           this.loading = false;
         })
         .catch(err => {
