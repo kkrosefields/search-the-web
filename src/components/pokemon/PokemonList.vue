@@ -1,6 +1,6 @@
 <template>
     <li> 
-        <router-link :to="`/pokemon/${pokemon.id}`">
+        <router-link :to="`/pokemon/${pokemonList.name}`">
         {{pokemonList.name}} 
         </router-link>
     </li>

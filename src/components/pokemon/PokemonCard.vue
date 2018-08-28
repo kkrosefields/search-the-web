@@ -1,16 +1,49 @@
 <template>
-    <li class="pokemon-card">
-        <h2> {{pokemonList.pokemon}} </h2>
-        <img class="pokemon-img" :src=pokemonList.url_image>
-        <p> <span class="type">Type: {{pokemonList.type_1}}</span> <span class="species"> Species: {{pokemonList.species_id}}</span></p>
-    </li>   
+    <div v-if="pokemon">
+        <li class="pokemon-card">
+            <h2> {{pokemon.name}} </h2>
+     </li>   
+    </div>
 </template>
 
 <script>
+import api from '../../services/api';
+import Loader from './Loader';
+
 export default {
-  props: {
-    PokemonList: Object,
+
+data(){
+return {
+pokemon: null,
+loading: false,
+error: null,
+search:'',
+    
+}
+},
   
+  created() {
+    this.search = this.$route.params.pokemon_id;
+    this.searchPokemon();
   },
+  components: {
+    Loader
+  },
+  methods: {
+    searchPokemon() {
+      this.loading = true;
+      this.error = null;
+      api.getPokemon(this.search)
+        .then(response => {
+          this.pokemon = response.results[0];
+          this.loading = false;
+        })
+        .catch(err => {
+          this.error = err.message;
+          this.loading = false;
+        });
+    }
+  }
 };
+
 </script>
